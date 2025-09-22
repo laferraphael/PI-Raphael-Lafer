@@ -27,6 +27,11 @@ jobs:
       - name: Run tests with JaCoCo
         run: mvn clean test jacoco:report
 
+      - name: Show coverage summary
+        run: |
+          echo "=== JaCoCo Coverage Summary ==="
+          cat target/site/jacoco/jacoco.csv || true
+
       - name: Check JaCoCo coverage
         uses: madrapps/jacoco-report@v1.7.2
         with:
@@ -38,7 +43,7 @@ jobs:
           fail-build: true
 
       - name: Upload JaCoCo report (HTML)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
           path: target/site/jacoco/
