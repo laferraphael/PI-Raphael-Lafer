@@ -30,7 +30,16 @@ jobs:
       - name: Show coverage summary
         run: |
           echo "=== JaCoCo Coverage Summary ==="
-          cat target/site/jacoco/jacoco.csv || true
+          MISSED=$(tail -n +2 target/site/jacoco/jacoco.csv | awk -F',' '{sum+=$9} END {print sum}')
+          COVERED=$(tail -n +2 target/site/jacoco/jacoco.csv | awk -F',' '{sum+=$10} END {print sum}')
+          TOTAL=$((MISSED + COVERED))
+          if [ $TOTAL -eq 0 ]; then
+            PERCENT=0
+          else
+            PERCENT=$((100 * COVERED / TOTAL))
+          fi
+          echo "Total Coverage: $PERCENT%"
+
 
       - name: Check JaCoCo coverage
         uses: madrapps/jacoco-report@v1.7.2
