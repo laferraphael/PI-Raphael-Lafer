@@ -1,13 +1,11 @@
-package com.example.proj;
+package com.example.livro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjApplication {
-
+public class LivroApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(ProjApplication.class, args);
+		SpringApplication.run(LivroApplication.class, args);
 	}
-
 }
