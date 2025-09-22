@@ -30,8 +30,8 @@ jobs:
       - name: Show coverage summary
         run: |
           echo "=== JaCoCo Coverage Summary ==="
-          MISSED=$(tail -n +2 target/site/jacoco/jacoco.csv | awk -F',' '{sum+=$9} END {print sum}')
-          COVERED=$(tail -n +2 target/site/jacoco/jacoco.csv | awk -F',' '{sum+=$10} END {print sum}')
+          MISSED=$(tail -n +2 target/site/jacoco/jacoco.csv | awk -F',' '{sum+=$8} END {print sum}')
+          COVERED=$(tail -n +2 target/site/jacoco/jacoco.csv | awk -F',' '{sum+=$9} END {print sum}')
           TOTAL=$((MISSED + COVERED))
           if [ $TOTAL -eq 0 ]; then
             PERCENT=0
