@@ -1,4 +1,4 @@
-package com.example.livro_test.service;
+package com.example.livro.service;
 
 import com.example.livro.model.Livro;
 import com.example.livro.repository.LivroRepository;

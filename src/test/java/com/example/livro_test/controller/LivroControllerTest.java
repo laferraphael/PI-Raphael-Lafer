@@ -1,4 +1,4 @@
-package com.example.livro_test.controller;
+package com.example.livro.controller;
 
 import com.example.livro.model.Livro;
 import com.example.livro.service.LivroService;
